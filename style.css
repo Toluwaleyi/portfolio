@@ -136,6 +136,16 @@ h2.display { font-size: clamp(36px, 5.5vw, 72px); line-height: 1; letter-spacing
 .reel.has-video:hover .play-btn { transform: scale(1.06); background: var(--accent); }
 .reel.is-playing { cursor: default; }
 .reel.is-playing .play-btn, .reel.is-playing .reel-hud { visibility: hidden; }
+
+/* Vertical / custom-ratio videos (set by data-ratio, or automatically for YouTube Shorts).
+   The frame keeps the same look, just reshaped and centred, never taller than the screen. */
+.reel.is-portrait {
+  width: min(100%, calc(min(82vh, 860px) * var(--ratio, 0.5625)));
+  margin-left: auto; margin-right: auto;
+}
+.reel.is-portrait .reel-hud { left: 16px; right: 16px; font-size: 12px; }
+.reel.is-portrait .reel-hud-top { top: 16px; }
+.reel-section .ticks.is-portrait { width: min(100%, 420px); margin-left: auto; margin-right: auto; }
 .reel-hud { position: absolute !important; left: 24px; right: 24px; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
 .reel-hud-top { top: 20px; }
 .play-btn {
@@ -245,6 +255,7 @@ h2.display { font-size: clamp(36px, 5.5vw, 72px); line-height: 1; letter-spacing
 .lightbox { width: min(1100px, 92vw); padding: 0; border: 1px solid var(--line); border-radius: var(--radius); background: #000; overflow: visible; }
 .lightbox::backdrop { background: rgba(0, 0, 0, 0.85); }
 .lightbox-frame { aspect-ratio: 16 / 9; }
+.lightbox.is-portrait { width: min(92vw, calc(82vh * var(--ratio, 0.5625))); }
 .lightbox-frame iframe { width: 100%; height: 100%; border: 0; border-radius: var(--radius); display: block; }
 .lightbox-close {
   position: absolute; top: -56px; right: 0; width: 44px; height: 44px; border-radius: 50%;

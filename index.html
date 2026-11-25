@@ -78,8 +78,14 @@
         the video right inside the frame. (Vimeo links work too.)
         Optional: put your own cover image at assets/reel-poster.jpg to use it instead
         of YouTube's thumbnail.
+
+        ▶ FRAME SHAPE: data-ratio=""
+          "16:9" = landscape (normal YouTube video)
+          "9:16" = vertical (Reels / TikTok / Shorts)
+          Also works: "1:1" square, "4:5" portrait.
+          Left empty, Shorts links become vertical automatically, everything else landscape.
       -->
-      <div class="reel" data-embed="https://youtu.be/rz1B4B2yBZY" data-poster="assets/reel-poster.jpg">
+      <div class="reel" data-embed="https://youtu.be/rz1B4B2yBZY" data-ratio="16:9" data-poster="assets/reel-poster.jpg">
         <div class="reel-hud reel-hud-top">
           <span>SHOWREEL [YEAR]</span>
           <span class="timecode" data-timecode>00:00:00:00</span>
@@ -107,7 +113,9 @@
       <!--
         EDIT: one <article> per project. Copy/paste to add more.
           data-category  = filter group (any text; filter buttons build themselves)
-          data-video     = optional embed url — clicking the card opens it in a lightbox
+          data-video     = optional YouTube/Vimeo link — clicking the card plays it in a pop-up
+          data-ratio     = optional "9:16" for a vertical video ("16:9" is the default;
+                           Shorts links are vertical automatically)
           img src        = thumbnail (16:9, e.g. 1280×720) in the assets folder
       -->
       <div class="work-grid">

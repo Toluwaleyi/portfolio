@@ -27,6 +27,21 @@
     if (vm) return "https://player.vimeo.com/video/" + vm[1] + "?autoplay=1";
     return url; // already an embed url
   }
+  // Frame shape: data-ratio="9:16" (vertical), "16:9" (landscape), "1:1", "4:5"…
+  // With no data-ratio, YouTube Shorts links are vertical and everything else is landscape.
+  function videoRatio(el, url) {
+    var attr = (el.getAttribute("data-ratio") || "").trim();
+    var m = attr.match(/^(\d+(?:\.\d+)?)\s*[:\/x]\s*(\d+(?:\.\d+)?)$/i);
+    if (m) return [parseFloat(m[1]), parseFloat(m[2])];
+    if (/\/shorts\//.test(cleanLink(url))) return [9, 16];
+    return [16, 9];
+  }
+  function applyRatio(el, r) {
+    el.style.aspectRatio = r[0] + " / " + r[1];
+    el.style.setProperty("--ratio", String(r[0] / r[1]));
+    el.classList.toggle("is-portrait", r[0] < r[1]);
+  }
+
   // Use YouTube's own thumbnail; falls back to the smaller one if no HD version exists.
   function loadYouTubeThumb(id, onReady) {
     var hd = new Image();
@@ -74,6 +89,11 @@
     var embed = cleanLink(reel.getAttribute("data-embed"));
     var poster = reel.getAttribute("data-poster");
     var ytId = youTubeId(embed);
+
+    var reelRatio = videoRatio(reel, embed);
+    applyRatio(reel, reelRatio);
+    var reelTicks = reel.parentElement.querySelector(".ticks");
+    if (reelTicks) reelTicks.classList.toggle("is-portrait", reelRatio[0] < reelRatio[1]);
 
     var setPoster = function (src) {
       reel.style.backgroundImage = "url('" + src + "')";
@@ -179,6 +199,10 @@
       if (!url) { btn.style.cursor = "default"; return; }
       btn.addEventListener("click", function () {
         var title = (p.querySelector("h3") || {}).textContent || "Project video";
+        var r = videoRatio(p, url);
+        frame.style.aspectRatio = r[0] + " / " + r[1];
+        box.style.setProperty("--ratio", String(r[0] / r[1]));
+        box.classList.toggle("is-portrait", r[0] < r[1]);
         frame.innerHTML = "";
         frame.appendChild(makeIframe(toEmbedUrl(url), title));
         box.showModal();
