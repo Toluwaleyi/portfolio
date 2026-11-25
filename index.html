@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ============ EDIT: page title + description (shows in Google & link previews) ============ -->
+  <title>[Your Name] — Video Editor</title>
+  <meta name="description" content="Video editor for commercials, music videos and documentaries. Editing, color grading, sound and motion graphics.">
+
+  <!-- Link previews (WhatsApp, LinkedIn, X). Put a 1200×630 image at assets/og-image.jpg -->
+  <meta property="og:title" content="[Your Name] — Video Editor">
+  <meta property="og:description" content="I cut stories that hold attention.">
+  <meta property="og:image" content="assets/og-image.jpg">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0E0E10">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===================== HEADER / NAV ===================== -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main">
+      <a href="#top" class="brand">
+        <span class="rec-dot" aria-hidden="true"></span>
+        <span>[Your Name]</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="btn btn-outline btn-sm">Get in touch</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ===================== HERO ===================== -->
+    <section id="top" class="hero container">
+      <p class="eyebrow">
+        <span class="rec-dot" aria-hidden="true"></span>
+        Video editor · [Your City] · Open to projects
+      </p>
+      <h1 class="hero-title">I cut stories that hold attention.</h1>
+      <div class="hero-row">
+        <p class="lead">Editor for commercials, music videos and documentaries. I shape raw footage into pace, rhythm and feeling — from first assembly to final delivery.</p>
+        <div class="btn-group">
+          <a href="#reel" class="btn btn-accent">
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14"><path d="M3 1.5v11l9-5.5z" fill="currentColor"/></svg>
+            Watch showreel
+          </a>
+          <a href="#contact" class="btn btn-outline">Start a project</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SHOWREEL ===================== -->
+    <section id="reel" class="container reel-section" aria-label="Showreel">
+      <!--
+        EDIT: set data-embed to your video's EMBED url:
+          Vimeo:   https://player.vimeo.com/video/123456789
+          YouTube: https://www.youtube.com/embed/VIDEO_ID
+        The video only loads when someone presses play (keeps the page fast).
+        Optional: add a poster image at assets/reel-poster.jpg
+      -->
+      <div class="reel" data-embed="" data-poster="assets/reel-poster.jpg">
+        <div class="reel-hud reel-hud-top">
+          <span>SHOWREEL [YEAR]</span>
+          <span class="timecode" data-timecode>00:00:00:00</span>
+        </div>
+        <button class="play-btn" type="button" aria-label="Play showreel">
+          <svg aria-hidden="true" width="30" height="30" viewBox="0 0 14 14"><path d="M3.5 1.5v11l9-5.5z" fill="currentColor"/></svg>
+        </button>
+        <p class="reel-note">Add your showreel link in index.html</p>
+      </div>
+      <div class="ticks" aria-hidden="true"></div>
+    </section>
+
+    <!-- ===================== SELECTED WORK ===================== -->
+    <section id="work" class="container section">
+      <div class="section-head">
+        <div>
+          <p class="kicker">01 — SELECTED WORK</p>
+          <h2>Recent cuts</h2>
+        </div>
+        <div class="filters" role="group" aria-label="Filter projects">
+          <!-- Buttons are generated from the categories on your project cards (script.js) -->
+        </div>
+      </div>
+
+      <!--
+        EDIT: one <article> per project. Copy/paste to add more.
+          data-category  = filter group (any text; filter buttons build themselves)
+          data-video     = optional embed url — clicking the card opens it in a lightbox
+          img src        = thumbnail (16:9, e.g. 1280×720) in the assets folder
+      -->
+      <div class="work-grid">
+
+        <article class="project" data-category="Commercial" data-video="">
+          <button class="thumb" type="button" aria-label="Play [Project title]">
+            <img src="assets/project-1.jpg" alt="" loading="lazy">
+            <span class="tag">Commercial</span>
+            <span class="runtime">[0:00]</span>
+          </button>
+          <div class="project-meta">
+            <div>
+              <h3>[Project title]</h3>
+              <p>[Client] · [Year]</p>
+            </div>
+            <span class="role">EDIT · COLOR</span>
+          </div>
+        </article>
+
+        <article class="project" data-category="Music video" data-video="">
+          <button class="thumb" type="button" aria-label="Play [Project title]">
+            <img src="assets/project-2.jpg" alt="" loading="lazy">
+            <span class="tag">Music video</span>
+            <span class="runtime">[0:00]</span>
+          </button>
+          <div class="project-meta">
+            <div>
+              <h3>[Project title]</h3>
+              <p>[Client] · [Year]</p>
+            </div>
+            <span class="role">EDIT · VFX</span>
+          </div>
+        </article>
+
+        <article class="project" data-category="Documentary" data-video="">
+          <button class="thumb" type="button" aria-label="Play [Project title]">
+            <img src="assets/project-3.jpg" alt="" loading="lazy">
+            <span class="tag">Documentary</span>
+            <span class="runtime">[0:00]</span>
+          </button>
+          <div class="project-meta">
+            <div>
+              <h3>[Project title]</h3>
+              <p>[Client] · [Year]</p>
+            </div>
+            <span class="role">EDIT · SOUND</span>
+          </div>
+        </article>
+
+        <article class="project" data-category="Short film" data-video="">
+          <button class="thumb" type="button" aria-label="Play [Project title]">
+            <img src="assets/project-4.jpg" alt="" loading="lazy">
+            <span class="tag">Short film</span>
+            <span class="runtime">[0:00]</span>
+          </button>
+          <div class="project-meta">
+            <div>
+              <h3>[Project title]</h3>
+              <p>[Client] · [Year]</p>
+            </div>
+            <span class="role">EDIT · COLOR</span>
+          </div>
+        </article>
+
+        <article class="project" data-category="Social" data-video="">
+          <button class="thumb" type="button" aria-label="Play [Project title]">
+            <img src="assets/project-5.jpg" alt="" loading="lazy">
+            <span class="tag">Social</span>
+            <span class="runtime">[0:00]</span>
+          </button>
+          <div class="project-meta">
+            <div>
+              <h3>[Project title]</h3>
+              <p>[Client] · [Year]</p>
+            </div>
+            <span class="role">EDIT · MOTION</span>
+          </div>
+        </article>
+
+        <article class="project" data-category="Commercial" data-video="">
+          <button class="thumb" type="button" aria-label="Play [Project title]">
+            <img src="assets/project-6.jpg" alt="" loading="lazy">
+            <span class="tag">Commercial</span>
+            <span class="runtime">[0:00]</span>
+          </button>
+          <div class="project-meta">
+            <div>
+              <h3>[Project title]</h3>
+              <p>[Client] · [Year]</p>
+            </div>
+            <span class="role">EDIT</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===================== SERVICES ===================== -->
+    <section id="services" class="band">
+      <div class="container section">
+        <p class="kicker">02 — SERVICES</p>
+        <h2 class="mb-48">From raw footage to final master.</h2>
+        <div class="services">
+          <div class="service">
+            <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.1 15.9M14.5 14.5L20 20M8.1 8.1L12 12"/></svg>
+            <h3>Editing</h3>
+            <p>Story structure, pacing and rhythm. Long-form, short-form and everything in between.</p>
+          </div>
+          <div class="service">
+            <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M12 3a9 9 0 0 1 0 18"/></svg>
+            <h3>Color grading</h3>
+            <p>Shot matching, look development and finishing grades that set the mood.</p>
+          </div>
+          <div class="service">
+            <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h2M7 8v8M11 4v16M15 7v10M19 10v4"/></svg>
+            <h3>Sound design &amp; mix</h3>
+            <p>Dialogue cleanup, music edits, effects and a balanced final mix.</p>
+          </div>
+          <div class="service">
+            <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <h3>Motion graphics</h3>
+            <p>Titles, lower thirds, captions and animated graphics for every platform.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROCESS ===================== -->
+    <section class="container section" aria-labelledby="process-h">
+      <p class="kicker">03 — PROCESS</p>
+      <h2 id="process-h" class="mb-48">How a project runs</h2>
+      <ol class="process">
+        <li class="is-active">
+          <p class="step-tc">00:00 — STEP 1</p>
+          <h3>Brief &amp; footage review</h3>
+          <p>We agree on goals, references, runtime and deadlines. I log and organize every clip.</p>
+        </li>
+        <li>
+          <p class="step-tc">00:15 — STEP 2</p>
+          <h3>Assembly &amp; rough cut</h3>
+          <p>A first pass to find the story and the structure, shared for your notes.</p>
+        </li>
+        <li>
+          <p class="step-tc">00:30 — STEP 3</p>
+          <h3>Fine cut</h3>
+          <p>Tightening pace and timing over [N] agreed revision rounds.</p>
+        </li>
+        <li>
+          <p class="step-tc">00:45 — STEP 4</p>
+          <h3>Finish &amp; deliver</h3>
+          <p>Color, sound and graphics locked, then exports for broadcast, web and social.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section id="about" class="rule-top">
+      <div class="container section about">
+        <div class="portrait">
+          <!-- EDIT: put a portrait (4:5, e.g. 800×1000) at assets/portrait.jpg -->
+          <img src="assets/portrait.jpg" alt="Portrait of [Your Name]" loading="lazy">
+        </div>
+        <div class="about-body">
+          <p class="kicker">04 — ABOUT</p>
+          <h2>Hi, I’m [Your Name].</h2>
+          <p class="lead">[Two or three sentences about you: how you got into editing, the kind of work you love, and who you’ve worked with.]</p>
+          <p class="lead">[One sentence on how you like to collaborate with directors, agencies and brands.]</p>
+          <h3 class="mini-head">TOOLS</h3>
+          <ul class="chips">
+            <li>Premiere Pro</li>
+            <li>DaVinci Resolve</li>
+            <li>After Effects</li>
+            <li>Final Cut Pro</li>
+            <li>Avid Media Composer</li>
+            <li>Audition</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact" class="band">
+      <div class="container section contact">
+        <div class="contact-intro">
+          <p class="kicker">05 — CONTACT</p>
+          <h2 class="display">Got footage? Let’s talk.</h2>
+          <p class="lead">Tell me about your project, timeline and budget. I’ll get back to you within [X] days.</p>
+          <!-- EDIT: your email (both places) -->
+          <a class="email-link" href="mailto:your@email.com">your@email.com</a>
+          <!-- EDIT: your profile links -->
+          <div class="socials">
+            <a href="https://vimeo.com/" target="_blank" rel="noopener">Vimeo</a>
+            <a href="https://youtube.com/" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap">
+          <!--
+            Netlify Forms: data-netlify="true" makes Netlify collect submissions.
+            They appear in your Netlify dashboard → Forms, and can be emailed to you.
+            The hidden "bot-field" catches spam bots.
+          -->
+          <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact">
+            <p class="hidden-field">
+              <label>Don’t fill this out: <input name="bot-field"></label>
+            </p>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="c-name">Name</label>
+                <input id="c-name" name="name" type="text" required autocomplete="name">
+              </div>
+              <div class="field">
+                <label for="c-email">Email</label>
+                <input id="c-email" name="email" type="email" required autocomplete="email">
+              </div>
+            </div>
+            <div class="field">
+              <label for="c-type">Project type</label>
+              <select id="c-type" name="project-type">
+                <option>Commercial</option>
+                <option>Music video</option>
+                <option>Documentary</option>
+                <option>Short film</option>
+                <option>Social content</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="c-msg">About the project</label>
+              <textarea id="c-msg" name="message" rows="5"></textarea>
+            </div>
+            <button type="submit" class="btn btn-accent">Send message</button>
+            <p class="form-error" role="alert" hidden>Something went wrong. Please email me directly instead.</p>
+          </form>
+
+          <div class="form-success" role="status" hidden>
+            <p class="success-title">Thanks — message received.</p>
+            <p>I’ll be in touch soon.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <span>© <span data-year></span> [Your Name]</span>
+      <span class="mono">END OF REEL — 00:00:00:00</span>
+    </div>
+  </footer>
+
+  <!-- Video lightbox (used by project cards with a data-video url) -->
+  <dialog class="lightbox" aria-label="Project video">
+    <button class="lightbox-close" type="button" aria-label="Close video">
+      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="lightbox-frame"></div>
+  </dialog>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
